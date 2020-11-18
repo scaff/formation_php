@@ -78,7 +78,7 @@
     return $nbVoisinVivants;
   }
 
-  echo getNbVoisinsVivants(4, 4, $plateau);
+  echo getNbVoisinsVivants(1, 1, $plateau);
 
   // troisième exercice : écrire une fonction qui pour une position donnée et un tableau donné 
   // retourne l'état prochain de la celulle à cette position
