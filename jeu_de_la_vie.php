@@ -66,10 +66,10 @@
         // on evite de sortir du tableau (si numColonne = 0 & si numColonne > taille du tableau, de même pour numLigne)
         $isBordHaut = $numLigne <= 0;
         $isBordGauche = $numColonne <= 0;
-        $isBordBas = $numLigne < count($plateau);
-        $isBordDroit = $numColonne < count($plateau[$ligne]);
-
-        if (!$isCelluleDuCentre || !$isBordHaut || !$isBordGauche || !$isBordDroit || !$isBordBas) {
+        $isBordBas = $ligne >= count($plateau);
+        $isBordDroit = $colonne >= count($plateau[0]);
+        
+        if (!($isCelluleDuCentre || $isBordHaut || $isBordGauche || $isBordDroit || $isBordBas)) {
           $nbVoisinVivants = $nbVoisinVivants + $plateau[$ligne][$colonne];
         }
       }
