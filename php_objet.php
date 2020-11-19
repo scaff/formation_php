@@ -5,6 +5,8 @@
     private $prenom;
     private $age;
     private $poid;
+    private $taille;
+    public $toto = 'test';
 
     // le constructeur qui permet d'initialiser les attributs à l'instanciation
     // il est appelé quand on fait new NomDeClasse()
@@ -33,7 +35,13 @@
       $this->poid = $this->poid + $poidAManger;
     }
 
+    // mutateur (ou setter en anglais)
     public function setAge($age) {
+      if ($age <= 18) {
+        $this->taille = $age * 10;
+      } else {
+        $this->taille = 180;
+      }
       $this->age = $age;
     }
   }
@@ -56,3 +64,14 @@
   echo '<br>';
 
   $aby->parler('Bonjour tout le monde');
+
+  // toto étant un attribut public, on y a accès en dehors de la classe
+  echo '<br> toto ';
+  echo $aby->toto;
+  
+  // age étant un attribut private, on n'y a pas accès en dehors de la classe
+  echo '<br> age ';
+  // echo $aby->age;
+
+  $aby->setAge(13);
+  var_dump($aby);
