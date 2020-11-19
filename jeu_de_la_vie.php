@@ -3,9 +3,9 @@
 //         0  1  2  3  4
     array( 0, 0, 0, 0, 0 ), // 0
     array( 0, 1, 1, 0, 0 ), // 1
-    array( 0, 0, 1, 0, 0 ), // 2
-    array( 0, 0, 0, 0, 0 ), // 3
-    array( 0, 0, 0, 0, 0 )  // 4
+    array( 0, 1, 1, 0, 0 ), // 2
+    array( 0, 1, 1, 0, 0 ), // 3
+    array( 0, 0, 1, 0, 0 )  // 4
                             // 5
   );
 
@@ -64,10 +64,10 @@
         $isCelluleDuCentre = ($ligne == $numLigne && $colonne == $numColonne);
         
         // on evite de sortir du tableau (si numColonne = 0 & si numColonne > taille du tableau, de même pour numLigne)
-        $isBordHaut = $numLigne <= 0;
-        $isBordGauche = $numColonne <= 0;
-        $isBordBas = $ligne >= count($plateau);
-        $isBordDroit = $colonne >= count($plateau[0]);
+        $isBordHaut = ($numLigne <= 0);
+        $isBordGauche = ($numColonne <= 0);
+        $isBordBas = ($ligne >= count($plateau));
+        $isBordDroit = ($colonne >= count($plateau[0]));
         
         if (!($isCelluleDuCentre || $isBordHaut || $isBordGauche || $isBordDroit || $isBordBas)) {
           $nbVoisinVivants = $nbVoisinVivants + $plateau[$ligne][$colonne];
@@ -78,10 +78,32 @@
     return $nbVoisinVivants;
   }
 
-  echo getNbVoisinsVivants(1, 1, $plateau);
+  echo getNbVoisinsVivants(0, 2, $plateau);
 
   // troisième exercice : écrire une fonction qui pour une position donnée et un tableau donné 
   // retourne l'état prochain de la celulle à cette position
+
+  function getCellNextState ($numColonne, $numLigne, $tableau) {
+    $nbVoisin = getNbVoisinsVivants ($numColonne, $numLigne, $tableau);
+
+    $sousPopulation = $nbVoisin < 2;
+    $surPopulation = $nbVoisin > 3;
+    $naissance = $nbVoisin == 3;
+    $aucunChangement = $nbVoisin == 2;
+
+    if ($sousPopulation || $surPopulation) {
+      return 0;
+    }
+    if ($naissance) {
+      return 1;
+    }
+    if ($aucunChangement) {
+      return $tableau[$numLigne][$numColonne];
+    }
+  }
+
+  echo '<br> Nouvel etat (2, 3)';
+  echo getCellNextState(2, 3, $plateau);
 
   // quatrième exercice : afficher le nouvel état du tableau
 
