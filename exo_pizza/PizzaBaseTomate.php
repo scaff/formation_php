@@ -1,5 +1,5 @@
 <?php
-  include('./Pizza.php');
+  include_once('./Pizza.php');
 
   class PizzaBaseTomate extends Pizza {
 
@@ -16,6 +16,3 @@
       echo '</div>';
     }
   }
-
-  $pizza = new PizzaBaseTomate('reine', array('jambon', 'champignon', 'fromage'), 15);
-  $pizza->display();

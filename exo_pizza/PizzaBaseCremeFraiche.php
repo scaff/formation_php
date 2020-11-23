@@ -1,5 +1,5 @@
 <?php
-  include('./Pizza.php');
+  include_once('./Pizza.php');
 
   class PizzaBaseCremeFraiche extends Pizza {
 
@@ -10,12 +10,9 @@
 
     public function display(){
       echo '<div style="color: yellow;">';
-      
+
       parent::display();
       
       echo '</div>';
     }
   }
-
-  $pizza = new PizzaBaseCremeFraiche('tartiflette', array('reblochon', 'lard fumé'), 15);
-  $pizza->display();

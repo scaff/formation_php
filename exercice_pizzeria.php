@@ -1,9 +1,9 @@
 <?php
   // définir classe :
-  //   - pizza
-  //   - pizza base crème fraîche
-  //   - pizza base sauce tomate
-  //   - restaurant
+  //   x pizza
+  //   x pizza base crème fraîche
+  //   x pizza base sauce tomate
+  //   x restaurant
   //   - client qui doit pouvoir appeler le restaurant pour commander une pizza
   //   - commande
-  //   - menu
+  //   x menu

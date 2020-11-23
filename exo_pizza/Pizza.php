@@ -76,8 +76,4 @@
       }
     }
   }
-
-
-  $reine = new Pizza('reine', array('jambon', 'fromage'), 12);
-  $reine->display();
-  var_dump($reine);
+  
