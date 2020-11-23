@@ -3,8 +3,8 @@
 
   class PizzaBaseTomate extends Pizza {
 
-    public function __construct($nom, $listeIngredients, $prix, $taille) {
-      parent::__construct($nom, $listeIngredients, $prix, $taille);
+    public function __construct($nom, $listeIngredients, $prix) {
+      parent::__construct($nom, $listeIngredients, $prix);
       $this->listeIngredients = array_merge(array('base tomate'), $this->listeIngredients);
     }
 
@@ -17,5 +17,5 @@
     }
   }
 
-  $pizza = new PizzaBaseTomate('reine', array('jambon', 'champignon', 'fromage'), 15, 'XXL');
+  $pizza = new PizzaBaseTomate('reine', array('jambon', 'champignon', 'fromage'), 15);
   $pizza->display();

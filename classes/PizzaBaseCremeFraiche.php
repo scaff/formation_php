@@ -3,8 +3,8 @@
 
   class PizzaBaseCremeFraiche extends Pizza {
 
-    public function __construct($nom, $listeIngredients, $prix, $taille) {
-      parent::__construct($nom, $listeIngredients, $prix, $taille);
+    public function __construct($nom, $listeIngredients, $prix) {
+      parent::__construct($nom, $listeIngredients, $prix);
       $this->listeIngredients = array_merge(array('base crème fraiche'), $this->listeIngredients);
     }
 
@@ -17,5 +17,5 @@
     }
   }
 
-  $pizza = new PizzaBaseCremeFraiche('tartiflette', array('reblochon', 'lard fumé'), 15, 'XXL');
+  $pizza = new PizzaBaseCremeFraiche('tartiflette', array('reblochon', 'lard fumé'), 15);
   $pizza->display();
